@@ -19,6 +19,7 @@ import 'rxjs/add/operator/filter';
 export class DeviceChooserComponent implements OnInit {
 
   public kind: string;
+  public label: string;
   public okayStatus: string = "Success with";
   public notOkayStatus: string = "No success with";
 
@@ -77,8 +78,12 @@ export class DeviceChooserComponent implements OnInit {
 
     // select the matching actual device
     let selectedDevice = this.devices.find( device => device.groupId == this.defaultDevice.groupId );
-    this.selectedDevice.next( selectedDevice );
+    this.setSelectedDevice( selectedDevice );
 
+  }
+
+  setSelectedDevice(device) {
+    this.selectedDevice.next( device );
   }
 
 

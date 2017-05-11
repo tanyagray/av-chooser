@@ -17,7 +17,7 @@
 <button class="change-device">Change camera...</button>
 
 <ul class="device-list">
-  <li *ngFor="let device of devices">{{ device.label }}</li>
+  <li *ngFor="let device of devices" (click)="setSelectedDevice(device)">{{ device.label }}</li>
 </ul>
 
 
