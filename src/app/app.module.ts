@@ -4,10 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { DeviceChooserComponent } from './device-chooser/device-chooser.component';
+import { AvSelectorComponent } from './av-selector/av-selector.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DeviceChooserComponent,
+    AvSelectorComponent
   ],
   imports: [
     BrowserModule,

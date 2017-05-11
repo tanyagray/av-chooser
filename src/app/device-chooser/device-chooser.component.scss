@@ -1,0 +1,52 @@
+:host {    
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+    padding: 10px;
+    border-right: 1px dotted #ddd;
+    
+    &:last-of-type {
+      border-right: none;
+    }
+    
+    .preview {
+      display: block;
+      width: 100px;
+      height: 100px;
+      background: rgba(255,0,0,0.2);
+      border-radius: 100%;
+      margin-bottom: 15px;
+    }
+
+    .okay { display: none; }
+    .not-okay { display: block; }
+    
+    .device-name {
+      font-weight: bold;
+    }
+    
+    .change-device {
+      border: none;
+      background: transparent;
+      color: #aaaaaa;
+      
+      &:hover {
+        color: lightblue;
+      }
+    }
+    
+}
+
+
+:host.okay {
+
+    .preview {
+        background: rgba(0,255,0,0.2);
+    }
+
+    .okay { display: block; }
+    .not-okay { display: none; }
+
+}

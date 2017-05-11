@@ -1,0 +1,23 @@
+<p>
+  {{kind}}
+</p>
+
+<span class="preview">
+  <video class="okay"></video>
+  <span class="not-okay"></span>
+</span>
+
+<span class="status">
+  <span class="okay">{{ okayStatus }}</span>
+  <span class="not-okay">{{ notOkayStatus }}</span>
+</span>
+
+<span class="device-name">{{ selectedDeviceLabel }}</span>
+
+<button class="change-device">Change camera...</button>
+
+<ul class="device-list">
+  <li *ngFor="let device of devices">{{ device.label }}</li>
+</ul>
+
+
