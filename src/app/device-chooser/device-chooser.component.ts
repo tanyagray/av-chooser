@@ -8,6 +8,7 @@ import 'rxjs/add/observable/from';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
+import 'rxjs/add/observable/interval';
 
 @Component({
   selector: 'device-chooser',
@@ -28,6 +29,9 @@ export class DeviceChooserComponent implements OnInit {
   public defaultDevice: MediaDeviceInfo;
   public devices: MediaDeviceInfo[];
   public selectedDevice: Subject<MediaDeviceInfo>;
+
+  public $availableDevices: Observable<MediaDeviceInfo>;
+  public $selectedDevice: Subject<MediaDeviceInfo>;
   
 
 
@@ -51,6 +55,13 @@ export class DeviceChooserComponent implements OnInit {
     this.selectedDevice
       .subscribe( device => this.selectedDeviceChanged( device ) );
 
+
+    this.$availableDevices = Observable.interval(1000)
+      .flatMap( this.getAvailableDevices );
+  }
+
+  getAvailableDevices(): Observable<MediaDeviceInfo> {
+    return Observable.fromPromise( navigator.mediaDevices.enumerateDevices() );
   }
 
 

@@ -20,4 +20,8 @@
   <li *ngFor="let device of devices" (click)="setSelectedDevice(device)">{{ device.label }}</li>
 </ul>
 
+<ul class="device-list">
+  <li *ngFor="let device of $availableDevices | async" (click)="setSelectedDevice(device)"><b>{{ device.label }}</b></li>
+</ul>
+
 
